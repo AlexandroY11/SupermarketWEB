@@ -25,7 +25,7 @@
             @Html.DisplayFor(model => model.Category.Description)
         </dd>
     </dl>
-
+    <hr />
     <form method="post">
         <input type="hidden" asp-for="Category.Id" />
         <input type="submit" value="Delete" class="btn btn-danger"/>
@@ -34,8 +34,8 @@
 </div>
 
 
-@section Scripts {
+@* @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
-}
+} *@

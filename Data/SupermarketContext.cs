@@ -11,7 +11,7 @@ namespace SupermarketWEB.Data
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<Category> Paymodes { get; set; }
+        public DbSet<Paymode> Paymodes { get; set; }
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{

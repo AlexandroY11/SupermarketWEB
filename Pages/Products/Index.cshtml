@@ -25,9 +25,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Products[0].CategoryId)
             </th>
-            <th>
+            @* <th>
                 @Html.DisplayNameFor(model => model.Products[0].Category)
-            </th>
+            </th> *@
             <th>Actions</th>
         </tr>
     </thead>
@@ -47,9 +47,9 @@
                     <td>
                     @Html.DisplayFor(modelItem => item.CategoryId)
                     </td>
-                    <td>
+                    @* <td>
                     @Html.DisplayFor(modelItem => item.Category)
-                    </td>
+                    </td *@>
                     <td>
                         <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
                         <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>

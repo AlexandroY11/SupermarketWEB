@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using SupermarketWEB.Data;
 using SupermarketWEB.Models;
 
-namespace SupermarketWEB.Pages.Paymodes
+namespace SupermarketWEB.Pages.Providers
 {
     public class DeleteModel : PageModel
     {
@@ -16,24 +16,24 @@ namespace SupermarketWEB.Pages.Paymodes
         }
 
         [BindProperty]
-        public Paymode Paymode { get; set; } = default!;
+        public Provider Provider { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Paymodes == null)
+            if (id == null || _context.Providers == null)
             {
                 return NotFound();
             }
 
-            var paymode = await _context.Paymodes.FirstOrDefaultAsync(m => m.Id == id);
+            var provider = await _context.Providers.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (paymode == null)
+            if (provider == null)
             {
                 return NotFound();
             }
             else
             {
-                Paymode = paymode;
+                Provider = provider;
             }
             return Page();
 
@@ -41,17 +41,17 @@ namespace SupermarketWEB.Pages.Paymodes
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.Paymodes == null)
+            if (id == null || _context.Providers == null)
             {
                 return NotFound();
             }
 
-            var paymode = await _context.Paymodes.FindAsync(id);
+            var provider = await _context.Providers.FindAsync(id);
 
-            if (paymode != null)
+            if (provider != null)
             {
-                Paymode = paymode;
-                _context.Paymodes.Remove(paymode);
+                Provider = provider;
+                _context.Providers.Remove(provider);
                 await _context.SaveChangesAsync();
             }
 

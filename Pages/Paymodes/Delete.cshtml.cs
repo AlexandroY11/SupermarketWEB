@@ -25,15 +25,15 @@ namespace SupermarketWEB.Pages.Paymodes
                 return NotFound();
             }
 
-            var Paymode = await _context.Paymodes.FirstOrDefaultAsync(m => m.Id == id);
+            var paymode = await _context.Paymodes.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (Paymode == null)
+            if (paymode == null)
             {
                 return NotFound();
             }
             else
             {
-                Paymode = Paymode;
+                Paymode = paymode;
             }
             return Page();
 

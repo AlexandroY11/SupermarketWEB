@@ -11,8 +11,8 @@ using SupermarketWEB.Data;
 namespace SupermarketWEB.Migrations
 {
     [DbContext(typeof(SupermarketContext))]
-    [Migration("20231111195710_Initial_Migration")]
-    partial class Initial_Migration
+    [Migration("20231112000538_PayMode_Migration")]
+    partial class PayMode_Migration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

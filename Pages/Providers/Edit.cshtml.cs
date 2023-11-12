@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using SupermarketWEB.Data;
 using SupermarketWEB.Models;
 
-namespace SupermarketWEB.Pages.Products
+namespace SupermarketWEB.Pages.Providers
 {
     public class EditModel : PageModel
     {
@@ -16,22 +16,22 @@ namespace SupermarketWEB.Pages.Products
         }
 
         [BindProperty]
-        public Product Product { get; set; } = default!;
+        public Provider Provider { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Products == null)
+            if (id == null || _context.Providers == null)
             {
                 return NotFound();
             }
 
-            var product = await _context.Products.FirstOrDefaultAsync(m => m.Id == id);
+            var provider = await _context.Providers.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (product == null)
+            if (provider == null)
             {
                 return NotFound();
             }
-            Product = product;
+            Provider = provider;
             return Page();
 
         }
@@ -43,14 +43,14 @@ namespace SupermarketWEB.Pages.Products
                 return Page();
             }
 
-            _context.Attach(Product).State = EntityState.Modified;
+            _context.Attach(Provider).State = EntityState.Modified;
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProductExists(Product.Id))
+                if (!ProviderExists(Provider.Id))
                 {
                     return NotFound();
                 }
@@ -63,9 +63,9 @@ namespace SupermarketWEB.Pages.Products
             return RedirectToPage("./Index");
         }
 
-        private bool ProductExists(int id)
+        private bool ProviderExists(int id)
         {
-            return (_context.Products?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Providers?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

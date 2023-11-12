@@ -1,0 +1,19 @@
+[33m05becda[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m Edit Paymodes
+[33m3cfafe3[m Edit Paymodes
+[33m95124d4[m Update Delete Paymode function and Migration
+[33m325a531[m Delete Paymodes
+[33m3fccb2b[m Create Paymodes
+[33m00ef196[m Index Paymode
+[33mfd32306[m Paymode Model and Paymode Index
+[33mb992c3f[m Update Product Model, Create and Edit Products
+[33m4f7b5c7[m Edit Products
+[33meec3885[m Delete Products
+[33m011e212[m Create Products
+[33m4475e88[m Index Products
+[33m4189e23[m Edit Categories
+[33m97dd6d8[m Delete Categories
+[33m6acc7f4[m Create Categories
+[33m7602dd9[m Index Categories
+[33m5a4e0ad[m Modelos y configuración del DbContext
+[33m981a09a[m Agregar archivos de proyecto.
+[33m470d889[m Agregar .gitattributes, .gitignore y README.md.

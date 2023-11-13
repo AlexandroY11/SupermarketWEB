@@ -9,7 +9,7 @@ namespace SupermarketWEB.Pages.Account
     public class LoginModel : PageModel
     {
         [BindProperty]
-        public User User { get; set; }
+        public new User User { get; set; }
 
         public void OnGet()
         {

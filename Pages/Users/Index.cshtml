@@ -14,10 +14,6 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Users[0].Id)
-            </th>
-
-            <th>
                 @Html.DisplayNameFor(model => model.Users[0].Email)
             </th>
             <th>
@@ -29,16 +25,13 @@
     <tbody>
         @foreach (var item in Model.Users)
         {
-                <tr>
-                    <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                    </td>
-  
+                <tr>  
                     <td>
                     @Html.DisplayFor(modelItem => item.Email)
                     </td>
                     <td>
-                    @Html.DisplayFor(modelItem => item.Password)
+                    @* @Html.DisplayFor(modelItem => item.Password, new { @Value = "****" })  *@
+                    ********
                     </td>
                     <td>
                         <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>

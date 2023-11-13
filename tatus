@@ -1,10 +1,10 @@
-[33m05becda[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m Edit Paymodes
-[33m3cfafe3[m Edit Paymodes
-[33m95124d4[m Update Delete Paymode function and Migration
-[33m325a531[m Delete Paymodes
-[33m3fccb2b[m Create Paymodes
-[33m00ef196[m Index Paymode
-[33mfd32306[m Paymode Model and Paymode Index
+[33m05becda[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m Edit Users
+[33m3cfafe3[m Edit Users
+[33m95124d4[m Update Delete User function and Migration
+[33m325a531[m Delete Users
+[33m3fccb2b[m Create Users
+[33m00ef196[m Index User
+[33mfd32306[m User Model and User Index
 [33mb992c3f[m Update Product Model, Create and Edit Products
 [33m4f7b5c7[m Edit Products
 [33meec3885[m Delete Products

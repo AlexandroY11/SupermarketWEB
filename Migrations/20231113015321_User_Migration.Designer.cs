@@ -43,7 +43,7 @@ namespace SupermarketWEB.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("SupermarketWEB.Models.Paymode", b =>
+            modelBuilder.Entity("SupermarketWEB.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -59,7 +59,7 @@ namespace SupermarketWEB.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Paymodes");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("SupermarketWEB.Models.Product", b =>

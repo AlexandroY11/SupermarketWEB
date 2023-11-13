@@ -15,6 +15,7 @@ namespace SupermarketWEB.Pages.Account
         {
         }
 
+
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid) return Page();

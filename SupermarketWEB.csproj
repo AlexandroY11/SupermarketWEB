@@ -7,15 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Pages\Paymodes\Index1.cshtml.cs" />
+    <Compile Remove="Pages\Users\Index1.cshtml.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="Pages\Paymodes\Index1.cshtml" />
+    <Content Remove="Pages\Users\Index1.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Pages\Paymodes\Delete.cshtml~RF4a47695.TMP" />
+    <None Remove="Pages\Users\Delete.cshtml~RF4a47695.TMP" />
   </ItemGroup>
 
   <ItemGroup>

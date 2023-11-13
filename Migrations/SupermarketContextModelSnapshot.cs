@@ -124,6 +124,10 @@ namespace SupermarketWEB.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Users");
@@ -131,13 +135,11 @@ namespace SupermarketWEB.Migrations
 
             modelBuilder.Entity("SupermarketWEB.Models.Product", b =>
                 {
-                    b.HasOne("SupermarketWEB.Models.Category", "Category")
+                    b.HasOne("SupermarketWEB.Models.Category", null)
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("SupermarketWEB.Models.Category", b =>

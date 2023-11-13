@@ -17,6 +17,18 @@ html {
   min-height: 100%;
 }
 
+.div-login{
+    padding:10px;
+    justify-content: space-between;
+  
+}
+
+.span-name {
+    color: green;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
 body {
   margin-bottom: 60px;
 }

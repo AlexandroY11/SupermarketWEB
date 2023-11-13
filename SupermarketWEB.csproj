@@ -31,4 +31,25 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Resources\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Resources\buy.png" />
+    <None Include="wwwroot\Resources\cancel.png" />
+    <None Include="wwwroot\Resources\categories.png" />
+    <None Include="wwwroot\Resources\cerrar.png" />
+    <None Include="wwwroot\Resources\delete.png" />
+    <None Include="wwwroot\Resources\edit.png" />
+    <None Include="wwwroot\Resources\new.png" />
+    <None Include="wwwroot\Resources\products.png" />
+    <None Include="wwwroot\Resources\providers.png" />
+    <None Include="wwwroot\Resources\salida.png" />
+    <None Include="wwwroot\Resources\save.png" />
+    <None Include="wwwroot\Resources\search-small.png" />
+    <None Include="wwwroot\Resources\search.png" />
+    <None Include="wwwroot\Resources\sell.png" />
+  </ItemGroup>
+
 </Project>

@@ -2,12 +2,14 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SupermarketWEB.Models;
+using SupermarketWEB._Repositories;
 using System.Security.Claims;
 
 namespace SupermarketWEB.Pages.Account
 {
     public class LoginModel : PageModel
     {
+
         [BindProperty]
         public new User User { get; set; }
 
@@ -15,29 +17,40 @@ namespace SupermarketWEB.Pages.Account
         {
         }
 
+        UserRepository repository = new UserRepository();
 
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid) return Page();
 
-            if(User.Email == "correo@gmail.com" && User.Password == "12345")
+            IEnumerable<User> userList = repository.GetByValue(User.Email);
+
+            if (userList.Any())
             {
-                var claims = new List<Claim>
+                User userFromRepository = userList.First();
+
+                if (userFromRepository.Password == User.Password)
                 {
-                    new Claim(ClaimTypes.Name, "admin"),
-                    new Claim(ClaimTypes.Email, User.Email),
-                };
 
-                var identity = new ClaimsIdentity(claims, "CookieAuth");
+                    var emailParts = User.Email.Split('@');
+                    string userName = emailParts.Length > 0 ? emailParts[0] : User.Email;
 
-                ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);
+                    var claims = new List<Claim>
+                    {
+                         new Claim(ClaimTypes.Name, userName),
+                         new Claim(ClaimTypes.Email, User.Email),
+                    };
 
-                await HttpContext.SignInAsync("CookieAuth", claimsPrincipal);
+                    var identity = new ClaimsIdentity(claims, "CookieAuth");
 
-                return RedirectToPage("/Index");
+                    ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);
+
+                    await HttpContext.SignInAsync("CookieAuth", claimsPrincipal);
+
+                    return RedirectToPage("/Index");
+                }
             }
             return Page();
-
             //Console.WriteLine("User: " + User.Email + "\nPassword: " + User.Password);
         }
     }

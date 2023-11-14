@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Compile Remove="Pages\Users\Index1.cshtml.cs" />
+    <Compile Remove="_Repositories\BaseRepository.cs" />
   </ItemGroup>
 
   <ItemGroup>

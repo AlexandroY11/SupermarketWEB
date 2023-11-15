@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using SupermarketWEB._Repositories;
 using SupermarketWEB.Data;
 
 namespace SupermarketWEB
@@ -22,6 +23,8 @@ namespace SupermarketWEB
                 options.UseSqlServer(builder.Configuration.GetConnectionString("SupermarketDB"))
             );
 
+            builder.Services.AddScoped<UserRepository>();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -31,6 +34,7 @@ namespace SupermarketWEB
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

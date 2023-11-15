@@ -11,8 +11,8 @@ using SupermarketWEB.Data;
 namespace SupermarketWEB.Migrations
 {
     [DbContext(typeof(SupermarketContext))]
-    [Migration("20231112022934_Provider_Migration")]
-    partial class Provider_Migration
+    [Migration("20231115220504_DatabaseMigration")]
+    partial class DatabaseMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -111,15 +111,34 @@ namespace SupermarketWEB.Migrations
                     b.ToTable("Providers");
                 });
 
+            modelBuilder.Entity("SupermarketWEB.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
+
             modelBuilder.Entity("SupermarketWEB.Models.Product", b =>
                 {
-                    b.HasOne("SupermarketWEB.Models.Category", "Category")
+                    b.HasOne("SupermarketWEB.Models.Category", null)
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("SupermarketWEB.Models.Category", b =>

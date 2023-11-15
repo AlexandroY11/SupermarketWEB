@@ -3,27 +3,34 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SupermarketWEB.Models;
 using SupermarketWEB._Repositories;
+using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace SupermarketWEB.Pages.Account
 {
     public class LoginModel : PageModel
     {
-
         [BindProperty]
-        public new User User { get; set; }
+        public User User { get; set; }
+
+        private readonly UserRepository _repository;
+
+        public LoginModel(UserRepository repository)
+        {
+            _repository = repository;
+        }
 
         public void OnGet()
         {
         }
 
-        UserRepository repository = new UserRepository();
-
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid) return Page();
 
-            IEnumerable<User> userList = repository.GetByValue(User.Email);
+            IEnumerable<User> userList = _repository.GetByValue(User.Email);
 
             if (userList.Any())
             {
@@ -31,7 +38,6 @@ namespace SupermarketWEB.Pages.Account
 
                 if (userFromRepository.Password == User.Password)
                 {
-
                     var emailParts = User.Email.Split('@');
                     string userName = emailParts.Length > 0 ? emailParts[0] : User.Email;
 
@@ -51,7 +57,6 @@ namespace SupermarketWEB.Pages.Account
                 }
             }
             return Page();
-            //Console.WriteLine("User: " + User.Email + "\nPassword: " + User.Password);
         }
     }
 }

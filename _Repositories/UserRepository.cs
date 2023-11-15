@@ -5,13 +5,15 @@ using System.Data;
 
 namespace SupermarketWEB._Repositories
 {
-    internal class UserRepository
+    public class UserRepository
     {
         private readonly IConfiguration _configuration;
+        private readonly string connectionString;
 
         public UserRepository(IConfiguration configuration)
         {
             this.connectionString = configuration.GetConnectionString("SupermarketDB");
+            Console.WriteLine($"Connection String: {this.connectionString}");
         }
 
 
@@ -19,7 +21,7 @@ namespace SupermarketWEB._Repositories
         {
             var userList = new List<User>();
             string userEmail = value;
-            using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
+            using (var connection = new SqlConnection(this.connectionString))
             using (var command = new SqlCommand())
             {
                 connection.Open();

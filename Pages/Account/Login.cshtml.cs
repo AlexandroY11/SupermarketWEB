@@ -26,6 +26,9 @@ namespace SupermarketWEB.Pages.Account
         {
         }
 
+        [TempData]
+        public string ErrorMessage { get; set; }
+
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid) return Page();
@@ -56,7 +59,11 @@ namespace SupermarketWEB.Pages.Account
                     return RedirectToPage("/Index");
                 }
             }
+
+            ErrorMessage = "Error: Incorrect user or password.\"";
+            TempData["ErrorMessage"] = ErrorMessage;
             return Page();
+
         }
     }
 }

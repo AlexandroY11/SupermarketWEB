@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace SupermarketWEB.Pages.Home
 {
-    [Authorize]
     public class IndexModel : PageModel
     {
         public void OnGet()

@@ -2,6 +2,7 @@
 @model SupermarketWEB.Pages.Account.LoginModel
 @{
 }
+
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
@@ -10,6 +11,8 @@
                 <div class="mb-3 text-center">
                     <img src="/Resources/Icon.png" alt="XYZ Supermarket" class="img-fluid" style="max-height: 125px;" />
                 </div>
+                
+
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
                     <input type="email" class="form-control" asp-for="User.Email" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -25,7 +28,13 @@
                         <span class="text-danger" asp-validation-for="User.Password"></span>
                     </div>
                 </div>
+                @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                {
+                    <div class="text-danger">@Model.ErrorMessage</div>
+                }
+                <br/>
                 <button type="submit" class="btn btn-custom">Login</button>
+                
             </form>
         </div>
     </div>
